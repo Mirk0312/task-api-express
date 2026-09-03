@@ -26,3 +26,16 @@ export const completeTask = (id: number): Task => {
  task.status = 'completed';
  return task;
 };
+
+export const deleteTask = (id: number): Task => {
+  const index = tasks.findIndex((task) => task.id === id);
+  if (index === -1) {
+    throw new Error(`No existe una tarea con el id ${id} para eliminar.`);
+  }
+  const [deletedTask] = tasks.splice(index, 1);
+  return deletedTask!;
+};
+
+export const listPendingTasks = (): readonly Task[] => {
+  return tasks.filter((task) => task.status === 'pending');
+};
