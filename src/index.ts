@@ -30,20 +30,20 @@ const main = async (): Promise<void> => {
   showTasks();
 
   // Crea y completa una tarea
-  const newTask = createTask('Construir mi primer servicio');
+  const newTask = createTask('Tarea de prueba');
   console.log(`Tarea creada con id ${newTask.id}.`);
   completeTask(newTask.id);
   console.log(`Tarea ${newTask.id} completada.`);
 
   // Muestra lista de tareas pendientes
-  const pendingTask = createTask('Estudiar Express para la siguiente clase');
+  const pendingTask = createTask('Tarea de Prueba # 2');
   console.log('\nTareas pendientes:');
   console.table(listPendingTasks());
 
   // Eliminación de tarea
   try {
     const deleted = deleteTask(pendingTask.id);
-    console.log(`\nÉxito: Tarea "${deleted.title}" (ID ${deleted.id}) eliminada.`);
+    console.log(`\nÉxito: Tarea "${deleted.title}" (ID ${deleted.id}) ha sido eliminada.`);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Error desconocido.';
     console.error(`Error al eliminar: ${message}`);
@@ -51,7 +51,7 @@ const main = async (): Promise<void> => {
 
   // Probar error al intentar eliminar un ID que no existe
     try {
-    deleteTask(999);
+    deleteTask(5);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Error desconocido.';
     console.error(`Error controlado al eliminar ID inexistente: ${message}`);
@@ -59,7 +59,7 @@ const main = async (): Promise<void> => {
 
   // Probar error al intentar completar la tarea de un ID que no existe
   try {
-    completeTask(999);
+    completeTask(10);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Ocurrió un error desconocido.';
     console.error(`Error controlado: ${message}`);
