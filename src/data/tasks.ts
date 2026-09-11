@@ -2,14 +2,14 @@ import type { Task } from '../models/task.js';
 export const tasks: Task[] = [
  {
  id: 1,
- title: 'Configurar el proyecto backend',
+ title: 'Configurar Express',
  status: 'completed',
  createdAt: new Date()
  },
  {
  id: 2,
- title: 'Practicar TypeScript',
+ title: 'Probar la API con Postman',
  status: 'pending',
  createdAt: new Date()
-
- } ];
+ } 
+];
