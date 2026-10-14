@@ -3,7 +3,6 @@ import {
   getTask,
   getTasks,
   patchTaskComplete,
-  patchTaskStatus,
   postTask,
   removeTask
 } from '../controllers/task.controller.js';
@@ -20,5 +19,5 @@ taskRouter.get('/', getTasks);
 taskRouter.get('/:id', getTask);
 taskRouter.post('/', requireJson, validateTaskTitle, postTask);
 taskRouter.patch('/:id/complete', patchTaskComplete);
-taskRouter.patch('/:id/status', requireJson, validateCompletion, patchTaskStatus);
+taskRouter.patch('/:id/status', requireJson, validateCompletion, patchTaskComplete);
 taskRouter.delete('/:id', removeTask);
