@@ -1,0 +1,12 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    environment: 'node',
+    setupFiles: ['./tests/setup-env.ts'],
+    exclude: ['**/dist/**', '**/node_modules/**'],
+    fileParallelism: false,
+    clearMocks: true,
+    restoreMocks: true
+  }
+});
